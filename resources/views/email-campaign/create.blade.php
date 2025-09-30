@@ -17,6 +17,7 @@
             });
         </script>
     @endif
+    
     <h1 class="text-center text-2xl font-bold mb-4">Créer une nouvelle campagne email</h1>
     <x-bladewind::card title="Formulaire">
         <form method="POST" action="{{ route('email-campaign.store') }}">
