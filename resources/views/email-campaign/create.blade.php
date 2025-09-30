@@ -7,10 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ asset('vendor/bladewind/css/animate.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />
-
 </head>
 
 <body>
+    <x-bladewind::notification />
+
+    @if (session('success'))
+        <script>
+            // Initialisation de la notification après chargement de la page
+            window.addEventListener('load', function() {
+                showNotification('{{ session('success') }}', 'Action réussie', 'success', 3);
+            });
+        </script>
+    @endif
 
     <div class="container mx-auto mt-6">
 

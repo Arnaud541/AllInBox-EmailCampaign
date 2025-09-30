@@ -7,8 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/email-campaign/create', function () {
-    return view('email-campaign.create');
+Route::controller(EmailCampaignController::class)->group(function () {
+    Route::get('/email-campaign', 'index')->name('email-campaign.index');
+    Route::get('/email-campaign/create', 'create')->name('email-campaign.create');
+    Route::post('/email-campaign/store', 'store')->name('email-campaign.store');
 });
-
-Route::post('/email-campaign/store', [EmailCampaignController::class, 'store'])->name('email-campaign.store');

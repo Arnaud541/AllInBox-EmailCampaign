@@ -24,9 +24,6 @@ class EmailCampaignController extends Controller
             'content' => 'required|string',
         ]);
 
-        var_dump($emailCampaignValidated);
-
-        // Logic to store the email campaign would go here (avec Brevo)
         return redirect()->route('email-campaign.index')->with('success', 'Campagne email créée avec succès!');
     }
 }
