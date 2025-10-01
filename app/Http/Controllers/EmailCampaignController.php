@@ -26,7 +26,7 @@ class EmailCampaignController extends Controller
             $emailsCampaigns = $result ? $result->getCampaigns() : [];
             return view('email-campaign.index', compact('emailsCampaigns'));
         } catch (Exception $e) {
-            return back()->with('error', 'Erreur lors de la récupération des campagnes email');
+            return view('email-campaign.index', ['emailsCampaigns' => [], 'error' => $e->getMessage()]);
         }
     }
 
@@ -60,7 +60,7 @@ class EmailCampaignController extends Controller
             // Redirection avec un message de succès
             return redirect()->route('email-campaign.index')->with('success', 'Campagne email créée avec succès!');
         } catch (Exception $e) {
-            return redirect()->back()->withInput()->with('error', 'Erreur lors de la création de la campagne email');
+            return redirect()->back()->withInput()->with('error', $e->getMessage());
         }
     }
 }

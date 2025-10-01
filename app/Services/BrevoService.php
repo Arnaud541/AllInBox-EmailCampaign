@@ -40,8 +40,7 @@ class BrevoService
             $result = $this->apiInstance->createEmailCampaign($createCampaign);
             return $result;
         } catch (Exception $e) {
-            echo 'Exception when calling EmailCampaignsApi->createEmailCampaign: ', $e->getMessage(), PHP_EOL;
-            return null;
+            throw new Exception('Erreur lors de la création de la campagne email');
         }
     }
 
@@ -55,8 +54,7 @@ class BrevoService
             $result = $this->apiInstance->getEmailCampaigns();
             return $result;
         } catch (Exception $e) {
-            echo 'Exception when calling EmailCampaignsApi->getEmailCampaigns: ', $e->getMessage(), PHP_EOL;
-            return null;
+            throw new Exception('Erreur lors de la récupération des campagnes email');
         }
     }
 }

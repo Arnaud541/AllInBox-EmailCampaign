@@ -9,11 +9,11 @@
             });
         </script>
     @endif
-    @if (session('error'))
+    @if (session('error') || isset($error))
         <script>
             // Initialisation de la notification après chargement de la page
             window.addEventListener('load', function() {
-                showNotification('{{ session('error') }}', 'Erreur de chargement', 'error', 3);
+                showNotification('{{ session('error') ?? $error }}', 'Erreur de chargement', 'error', 3);
             });
         </script>
     @endif
